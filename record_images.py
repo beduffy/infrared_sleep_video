@@ -11,10 +11,15 @@ time_of_last_image_save = time.time()
 # Configure IR stream
 pipeline = rs.pipeline()
 config = rs.config()
+
 config.enable_stream(rs.stream.infrared, 640, 480, rs.format.y8, 30)
 
-# Start input streaming
-pipeline.start(config)
+pipeline_profile = pipeline.start(config)
+device = pipeline_profile.get_device()
+depth_sensor = device.query_sensors()[0]
+if depth_sensor.supports(rs.option.emitter_enabled):
+    depth_sensor.set_option(rs.option.emitter_enabled, 0)
+
 
 # Ignore first 1sec for camera warm-up
 for i in range(30):

@@ -19,7 +19,7 @@ def create_night_video_from_folder(folder_path):
 
         fn = 'night_video.mp4'
         _fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
-        out = cv2.VideoWriter(fn, _fourcc, 3, size)
+        out = cv2.VideoWriter(fn, _fourcc, 15, size)
 
         for fp in all_filepaths:
             img = cv2.imread(fp)
