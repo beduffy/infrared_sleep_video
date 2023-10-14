@@ -40,21 +40,8 @@ def create_night_video_from_folder(folder_path):
             out.write(img)
         out.release()
         
-        # print('Num images: {}'.format(len(img_array)))
-
-        # img_array = sorted(img_array, key=lambda x: x[0])
-        
-        # print('Changing directory')
-        # os.chdir(snapshots_folder)
-        # print('os.getcwd(): ', os.getcwd())
-        # fn = '{}_{}_night_video.mp4'.format()
-        
-        
         msg = 'Created night report video at: {}'.format(fn)
         print(msg)
-        # for i in range(len(img_array)):
-        #     out.write(img_array[i][1])
-        # out.release()
         print('Finished')
     else:
         print('No images recorded, not creating video')
