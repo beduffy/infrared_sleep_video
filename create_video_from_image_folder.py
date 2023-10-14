@@ -28,15 +28,12 @@ def create_night_video_from_folder(folder_path):
             
             filename = fp.split('/')[-1]
             print(filename)
-            # filename_date_alone = filename.split('-')
             filename_date_plus = filename.split('img_dt_')[-1]
             filename_date_plus = filename_date_plus.split('_frame')[0]
-            # text_to_show = '-'.join(filename_date_plus.split('-'))
             text_to_show = filename_date_plus
 
             cv2.putText(img, text_to_show, (10, 23), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 0, 255), 2)
             img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-            # img_array.append((filename, img))
             out.write(img)
         out.release()
         
